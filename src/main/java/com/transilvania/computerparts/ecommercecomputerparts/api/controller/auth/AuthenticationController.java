@@ -4,10 +4,12 @@ import com.transilvania.computerparts.ecommercecomputerparts.api.model.LoginBody
 import com.transilvania.computerparts.ecommercecomputerparts.api.model.LoginResponse;
 import com.transilvania.computerparts.ecommercecomputerparts.api.model.RegistrationBody;
 import com.transilvania.computerparts.ecommercecomputerparts.exception.UserAlreadyExistsException;
+import com.transilvania.computerparts.ecommercecomputerparts.model.LocalUser;
 import com.transilvania.computerparts.ecommercecomputerparts.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -42,4 +44,8 @@ public class AuthenticationController {
         }
     }
 
+    @GetMapping("/me")
+    public LocalUser getLoggedInUserProfile(@AuthenticationPrincipal LocalUser user) {
+        return user;
+    }
 }
