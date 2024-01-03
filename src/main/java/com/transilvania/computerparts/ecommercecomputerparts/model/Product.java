@@ -25,6 +25,7 @@ public class Product {
     @OneToOne(mappedBy = "product", cascade = CascadeType.REMOVE, optional = false, orphanRemoval = true)
     private Inventory inventory;
 
+
     public Inventory getInventory() {
         return inventory;
     }

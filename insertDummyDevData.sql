@@ -1,6 +1,6 @@
 -- Script to insert dummy dev data into the database.
 
--- You first need to register two users into the system before running this scirpt.
+-- You first need to register two users into the system before running this script.
 
 -- Replace the id here with the first user id you want to have ownership of the orders.
 DECLARE @userId1 AS INT = 8;
