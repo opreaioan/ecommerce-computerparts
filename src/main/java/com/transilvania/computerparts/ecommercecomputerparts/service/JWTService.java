@@ -24,6 +24,7 @@ public class JWTService {
 
     @PostConstruct
     public void postConstruct() {
+
         algorithm = Algorithm.HMAC256(algorithmKey);
     }
 
@@ -34,7 +35,8 @@ public class JWTService {
                 .withIssuer(issuer)
                 .sign(algorithm);
     }
-    public String getUsername(String token){
+
+    public String getUsername(String token) {
         return JWT.decode(token).getClaim(USERNAME_KEY).asString();
     }
 }
